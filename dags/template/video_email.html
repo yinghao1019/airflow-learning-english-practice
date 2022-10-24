@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email video info</title>
+    <style type="text/css">
+        * {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color:black;
+        }
+
+        div.content table {
+            width: 50rem;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        tr,
+        td {
+            border: 1px black solid;
+            padding: 1rem 0.5rem;
+            font-size: 1rem;
+        }
+        tr
+        .property{
+            color:antiquewhite;
+            background-color: chocolate;
+        }
+        .value{
+            background-color: burlywood;
+        }
+        footer>p {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header">
+        <p>
+            今天為你推薦此教學影片來提升英文學習成效,請點擊以下資訊來進行觀看,謝謝!!
+        </p>
+        <p>
+            影片連結: <a href=$videoUrl>$videoUrl</a>
+        </p>
+
+    </div>
+    <div class="content">
+        <table>
+            <colgroup>
+                <col style="width:15%;">
+                <col style="width:85%">
+            </colgroup>
+            <tr>
+                <td class="property">
+                    頻道名稱
+                </td>
+                <td class="value">
+                    $channelTitle
+                </td>
+            </tr>
+            <tr>
+                <td class="property">
+                    影片標題
+                </td>
+                <td class="value">
+                    $title
+                </td>
+            </tr>
+            <tr>
+                <td class="property">
+                    摘要
+                </td>
+                <td class="value">
+                    $desc ...
+                </td>
+            </tr>
+            <tr>
+                <td class="property">
+                    瀏覽次數
+                </td>
+                <td class="value">
+                    $viewCount
+                </td>
+            </tr>
+            <tr>
+                <td class="property">
+                    按讚人數
+                </td>
+                <td class="value">
+                    $likeCount
+                </td>
+            </tr>
+            <tr>
+                <td class="property">
+                    發布日期
+                </td>
+                <td class="value">
+                    $publish
+                </td>
+            </tr>
+        </table>
+    </div>
+    <footer>
+        <p> ----------此信件為airflow 系統自動傳送,請勿直接回覆-------------</p>
+        <div class="contact-info">
+            <p>開發人員: 洪英皓 Howard</p>
+            <p>聯絡資訊: z112517z@gmail</p>
+        </div>
+    </footer>
+</body>
+
+</html>

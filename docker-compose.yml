@@ -8,6 +8,7 @@ x-common:
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
+    - ./application.ini:/opt/airflow/application.ini
     - ./plugins:/opt/airflow/plugins
     - /var/run/docker.sock:/var/run/docker.sock
 x-depends-on:
@@ -15,7 +16,6 @@ x-depends-on:
   depends_on:
     postgres:
       condition: service_healthy
-
 
 services:
   postgres:
@@ -33,8 +33,9 @@ services:
       - database
 
   scheduler:
-    <<: *common
-    <<: *depends-on
+    <<: 
+      - *common
+      - *depends-on
     container_name: scheduler
     command: scheduler
     restart: on-failure
@@ -44,8 +45,9 @@ services:
       - database
 
   webserver:
-    <<: *common
-    <<: *depends-on
+    <<: 
+      - *common
+      - *depends-on
     container_name: webserver
     restart: always
     command: webserver
@@ -88,3 +90,5 @@ services:
     command: python main.py
     depends_on:
       - database
+    volumes:
+      - ./init/main.py:/main.py
